@@ -11,7 +11,7 @@ with source_ as (
 
 -- Keith Evans today
 , final_ as (
-select {{ dbt_utils.generate_surrogate_key(['TRACK_ID','PLAYED_AT']) }}
+select {{ dbt_utils.generate_surrogate_key(['TRACK_ID','PLAYED_AT']) }} as snapshot_spotify_id
         ,{{dbt_utils.star(
                           from=source('kevans_grant_spotify', 'RAW_SPOTIFY_RECENTLY_PLAYED')
                             )}}
