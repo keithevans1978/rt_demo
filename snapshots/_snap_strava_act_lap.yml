@@ -1,0 +1,8 @@
+snapshots:
+  - name: snap_strava_act_lap
+    relation:  ref('land_strava_act_lap_raw')
+    config:
+      unique_key: ACTIVITY_LAP_ID
+      strategy: check
+      check_cols: [RAW_JSON]
+      dbt_valid_to_current: "to_date('8888-12-31')"

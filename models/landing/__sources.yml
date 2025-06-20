@@ -1,0 +1,28 @@
+version: 2
+
+sources:
+    - name: kevans_grant_strava
+      description: "This is the blog data base"
+      database: kevans_grant_src
+      schema: strava_api
+      tables:
+        - name: STRAVA_ACTIVITIES_RAW
+          description: 'This is the table of the garmin machines'
+          columns:
+          - name: activity_id
+            description: "the primary key for this table"
+            tests:
+                - unique
+                - not_null
+        - name: STRAVA_ACTIVITY_LAP_RAW
+          description: 'This is the table of the garmin machines US_STATES'
+        - name: US_STATES
+          description: 'This is the table of the garmin machines US_STATES'
+    - name: kevans_grant_spotify
+      description: "This is the blog data base"
+      database: kevans_grant_src
+      schema: spotify_api
+      tables:
+        - name: RAW_SPOTIFY_RECENTLY_PLAYED
+          description: 'This is the table of the garmin machines'
+          
