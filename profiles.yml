@@ -1,0 +1,9 @@
+grant_park:
+  target: dev
+  outputs:
+    dev:
+      type: snowflake
+      role: ACCOUNTADMIN
+      warehouse: DEMO_WH
+      schema: DEV
+      database: KEVANS_GRANT_DEV
