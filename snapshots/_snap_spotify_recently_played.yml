@@ -5,4 +5,4 @@ snapshots:
       unique_key: snapshot_spotify_id
       strategy: check
       check_cols: [RAW_JSON]
-      dbt_valid_to_current: "to_date('8888-12-31')"
+      dbt_valid_to_current: to_date('8888-12-31')

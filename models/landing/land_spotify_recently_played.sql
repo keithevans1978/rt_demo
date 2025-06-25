@@ -9,7 +9,7 @@ with source_ as (
     from {{ source('kevans_grant_spotify', 'RAW_SPOTIFY_RECENTLY_PLAYED') }}
 )
 
--- Keith Evans today
+
 , final_ as (
 select {{ dbt_utils.generate_surrogate_key(['TRACK_ID','PLAYED_AT']) }} as snapshot_spotify_id
         ,{{dbt_utils.star(
@@ -18,5 +18,17 @@ select {{ dbt_utils.generate_surrogate_key(['TRACK_ID','PLAYED_AT']) }} as snaps
 from source_
 )
 
-select distinct *
+select distinct snapshot_spotify_id
+        ,"TRACK_ID",
+  "TRACK_NAME",
+  "ARTIST_NAME",
+  "ALBUM_NAME",
+  "DURATION_MS",
+  "EXPLICIT",
+  "PLAYED_AT",
+  "URI",
+  "RAW_JSON",
+  "METADATA_LOAD_TS",
+  "METADATA_SOURCE_FILE",
+  "METADATA_ROW_NUMBER"
 from final_
