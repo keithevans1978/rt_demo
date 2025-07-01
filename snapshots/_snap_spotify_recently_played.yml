@@ -1,8 +1,0 @@
-snapshots:
-  - name: snap_spotify_recently_played
-    relation:  ref('land_spotify_recently_played')
-    config:
-      unique_key: snapshot_spotify_id
-      strategy: check
-      check_cols: [RAW_JSON]
-      dbt_valid_to_current: to_date('8888-12-31')

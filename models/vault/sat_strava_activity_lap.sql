@@ -1,13 +1,13 @@
 {{ config(
     materialized = 'incremental',
-    unique_key = ['activity_hk','load_date'],
+    unique_key = ['activity_lap_hk','load_date'],
     incremental_strategy = 'insert_overwrite'
     ,tags=["strava"]
 ) }}
 
 -- Source 1: Strava
-with strava_source as (
-    select   activity_hk
+with strava_lap_source as (
+    select      activity_hk
 	           ,activity_id
 	           ,start_date
 	           ,activity_type
@@ -16,20 +16,20 @@ with strava_source as (
 	           ,load_date
                ,change_hk
                ,record_source
-    from {{ ref('stage_strava_act') }}
+    from {{ ref('stage_strava_act_lap') }}
     where is_current = 1
 )
 
-,strava_current as (
+,strava_lap_current as (
     {% if is_incremental() %}
 
     select
-        activity_hk
+        activity_lap_hk
         ,load_date
         ,change_hk
     from {{ this }}
     qualify lead(load_date) over (
-        partition by activity_hk
+        partition by activity_lap_hk
         order by load_date
     ) is null
 

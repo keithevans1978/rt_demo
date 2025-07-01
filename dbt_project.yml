@@ -14,9 +14,6 @@ clean-targets:
   - "target"
   - "dbt_packages"
 
-snapshots:
-  grant_park:
-  +target_schema: 'SNAPSHOTS'
 
 seeds:
   # Builds seeds into '<your_schema_name>_raw'
