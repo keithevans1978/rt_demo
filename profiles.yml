@@ -1,0 +1,11 @@
+grant_park:
+  target: dev
+  outputs:
+    dev:
+      type: snowflake
+      account: 'not needed'
+      user: 'not needed'
+      role: ACCOUNTADMIN
+      warehouse: DEMO_WH
+      schema: DEV
+      database: KEVANS_GRANT_DEV

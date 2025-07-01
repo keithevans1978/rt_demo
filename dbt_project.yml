@@ -32,6 +32,9 @@ models:
     landing:
       +schema: stage
       +materialized: view
+    vault:
+      +schema: vault
+      +materialized: table
     inter:
       +schema: stage
       +materialized: view
