@@ -1,19 +1,18 @@
 {{ config(
     materialized = 'incremental',
     unique_key = ['activity_lap_hk','load_date'],
-    incremental_strategy = 'insert_overwrite'
+    incremental_strategy = 'append'
     ,tags=["strava"]
 ) }}
 
 -- Source 1: Strava
 with strava_lap_source as (
-    select      activity_hk
-	           ,activity_id
-	           ,start_date
-	           ,activity_type
-	           ,activity_name
-	           ,raw_json
-	           ,load_date
+    select      activity_lap_hk
+                ,activity_id
+	            ,lap_number
+	            ,lap_start_date
+	            ,raw_json
+	            ,load_date
                ,change_hk
                ,record_source
     from {{ ref('stage_strava_act_lap') }}
@@ -37,7 +36,7 @@ with strava_lap_source as (
 
     -- Return an empty result so model builds successfully on first run
     select
-        null as activity_hk
+        null as activity_lap_hk
         ,null as load_date
         ,null as change_hk
     where false
@@ -47,12 +46,12 @@ with strava_lap_source as (
 
 ,new_records as (
     select s.*
-    from strava_source s
-    left join strava_current c
-      on s.activity_hk = c.activity_hk
+    from strava_lap_source s
+    left join strava_lap_current c
+      on s.activity_lap_hk = c.activity_lap_hk
       and s.load_date = c.load_date
      and s.change_hk = c.change_hk  -- change hash match
-    where c.activity_hk is null  -- no match → new or changed
+    where c.activity_lap_hk is null  -- no match → new or changed
 )
 
 select *

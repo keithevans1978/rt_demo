@@ -21,5 +21,5 @@ SELECT
         WHEN CAST(dbt_valid_to AS DATE) = '8888-12-31' THEN 1
         ELSE 0
     END AS is_current
-    ,'snap_strava_act'  record_source
+    ,'strava_act'  record_source
 FROM {{ ref('snap_strava_act') }}

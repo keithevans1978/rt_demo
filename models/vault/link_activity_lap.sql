@@ -1,7 +1,7 @@
 {{ config(
     materialized = 'incremental',
     unique_key = 'activity_hk',
-    incremental_strategy = 'insert_overwrite'
+    incremental_strategy = 'append'
     ,tags=["strava"]
 ) }}
 
@@ -10,9 +10,9 @@ with strava_lap_source as (
     select
         activity_id
         ,lap_number
-        ,activity_lap_id as activity_lap_hk
+        ,activity_lap_hk
         ,activity_hk
-        ,{{ dbt_utils.generate_surrogate_key(['activity_hk','activity_lap_id']) }} activity_lap_lk
+        ,{{ dbt_utils.generate_surrogate_key(['activity_hk','activity_lap_hk']) }} activity_lap_lk
         ,load_date
         ,record_source
     from {{ ref('stage_strava_act_lap') }}

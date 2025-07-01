@@ -1,7 +1,7 @@
 {{ config(
     materialized = 'incremental',
     unique_key = 'activity_hk',
-    incremental_strategy = 'insert_overwrite'
+    incremental_strategy = 'append'
     ,tags=["strava"]
 ) }}
 
