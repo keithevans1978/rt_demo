@@ -9,3 +9,11 @@ grant_park:
       warehouse: DEMO_WH
       schema: DEV
       database: KEVANS_GRANT_DEV
+    prod:
+      type: snowflake
+      account: 'not needed'
+      user: 'not needed'
+      role: ACCOUNTADMIN
+      warehouse: DEMO_WH
+      schema: PROD
+      database: KEVANS_GRANT_PROD
