@@ -11,3 +11,6 @@ select *
         ,{{ sat_version_number('activity_lap_hk', 'load_date') }}
         ,{{ sat_reverse_version_number('activity_lap_hk', 'load_date') }}
 from {{ ref('sat_strava_activity_lap') }}
+
+
+

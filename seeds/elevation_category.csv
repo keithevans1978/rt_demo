@@ -1,0 +1,8 @@
+elevation_category_id,category_name,min_elevation_ft,max_elevation_ft,effort_multiplier,terrain_description
+ELEV_01,"Level AF",0,49,1.00,"So flat you could roll a marble straight to the horizon"
+ELEV_02,"Gentle Swoops",50,149,1.05,"Slight ups and downs—like a lazy rollercoaster"
+ELEV_03,"Roll With It",150,299,1.10,"Hills you notice but don’t curse"
+ELEV_04,"Oh Hill No",300,599,1.20,"Now your quads are paying attention"
+ELEV_05,"The Leg Screamer",600,999,1.35,"You're gonna feel that tomorrow"
+ELEV_06,"Mount Pain",1000,,1.50,"Welcome to altitude hell, bring snacks"
+ELEV_99,"Mystery Terrain",,,1.00,"GPS farted—data unknown"
