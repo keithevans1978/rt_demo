@@ -25,4 +25,19 @@ sources:
       tables:
         - name: RAW_SPOTIFY_RECENTLY_PLAYED
           description: 'This is the table of the garmin machines'
+    - name: kevans_grant_garmin
+      description: "This is the blog data base"
+      database: kevans_grant_src
+      schema: garmin
+      tables:
+        - name: ACTIVITIES
+          description: 'This is the table of the garmin machines'
+        - name: ACTIVITY_LAPS
+          description: 'This is the table of the garmin machines'
+        - name: GEAR_JSON_RAW
+          description: 'This is the table of the garmin machines'
+        - name: SLEEP
+          description: 'This is the table of the garmin machines'
+        - name: WEIGHT
+          description: 'This is the table of the garmin machines'
           
