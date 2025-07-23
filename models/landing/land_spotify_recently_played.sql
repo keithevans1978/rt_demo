@@ -27,8 +27,14 @@ select distinct snapshot_spotify_id
   "EXPLICIT",
   "PLAYED_AT",
   "URI",
-  "RAW_JSON",
-  "METADATA_LOAD_TS",
-  "METADATA_SOURCE_FILE",
-  "METADATA_ROW_NUMBER"
+  MAX("RAW_JSON")  RAW_JSON
 from final_
+group by snapshot_spotify_id,
+        "TRACK_ID",
+         "TRACK_NAME",
+        "ARTIST_NAME",
+        "ALBUM_NAME",
+        "DURATION_MS",
+        "EXPLICIT",
+        "PLAYED_AT",
+        "URI"
