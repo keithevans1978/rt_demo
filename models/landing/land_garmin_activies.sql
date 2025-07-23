@@ -4,13 +4,14 @@
 
 with source_ as (
         select {{dbt_utils.star(
-                          from=source('kevans_grant_garmin', 'ACTIVITIES')
+                          from=source('kevans_grant_garmin', 'activities')
                             )}}
-    from {{ source('kevans_grant_garmin', 'ACTIVITIES') }}
+                ,'garmin' as record_source
+    from {{ source('kevans_grant_garmin', 'activities') }}
 )
 
--- Keith Evans today
+-- keith evans today
 
-select {{ dbt_utils.generate_surrogate_key(['ACTIVITY_ID']) }} ACTIVITY_PK
+select {{ dbt_utils.generate_surrogate_key(['activity_id','record_source']) }} activity_pk
       ,*
 from source_
