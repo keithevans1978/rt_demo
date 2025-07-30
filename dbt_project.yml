@@ -14,18 +14,23 @@ clean-targets:
   - "target"
   - "dbt_packages"
 
+snapshots:
+  rt_demo:
+    +target_schema: snap
 
 seeds:
   # Builds seeds into '<your_schema_name>_raw'
   rt_demo:
-    +schema: raw
+    +schema: seed
+    +materialized: table
 
 models:
   rt_demo:
     # Materialize staging models as views, and marts as tables
     staging:
       +schema: stage
-      +materialized: table
+      +materialized: null
+      +transient: true
     landing:
       +schema: stage
       +materialized: view
@@ -38,6 +43,7 @@ models:
     marts:
       +schema: mart
       +materialized: table
+      +transient: false
       +snowflake_warehouse: "demo_wh"
       +docs:
         node_color: "black"
