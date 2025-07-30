@@ -1,6 +1,5 @@
 {{ 
-    config(materialized='view'
-    ,tags=["strava"])
+    config(materialized='view')
 }}
 
 with source_ as (

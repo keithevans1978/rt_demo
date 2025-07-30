@@ -1,43 +1,18 @@
 version: 2
 
 sources:
-    - name: kevans_grant_strava
+    - name: KANSAS_BASKETBALL
       description: "This is the blog data base"
-      database: kevans_grant_src
-      schema: strava_api
+      database: KANSAS_BASKETBALL
+      schema: PUBLIC
       tables:
-        - name: STRAVA_ACTIVITIES_RAW
+        - name: VW_TEAM
           description: 'This is the table of the garmin machines'
           columns:
-          - name: activity_id
+          - name: team_name
             description: "the primary key for this table"
             tests:
                 - unique
                 - not_null
-        - name: STRAVA_ACTIVITY_LAP_RAW
-          description: 'This is the table of the garmin machines US_STATES'
-        - name: US_STATES
-          description: 'This is the table of the garmin machines US_STATES'
-    - name: kevans_grant_spotify
-      description: "This is the blog data base"
-      database: kevans_grant_src
-      schema: spotify_api
-      tables:
-        - name: RAW_SPOTIFY_RECENTLY_PLAYED
-          description: 'This is the table of the garmin machines'
-    - name: kevans_grant_garmin
-      description: "This is the blog data base"
-      database: kevans_grant_src
-      schema: garmin
-      tables:
-        - name: ACTIVITIES
-          description: 'This is the table of the garmin machines'
-        - name: ACTIVITY_LAPS
-          description: 'This is the table of the garmin machines'
-        - name: GEAR_JSON_RAW
-          description: 'This is the table of the garmin machines'
-        - name: SLEEP
-          description: 'This is the table of the garmin machines'
-        - name: WEIGHT
-          description: 'This is the table of the garmin machines'
+
           
