@@ -1,0 +1,14 @@
+version: 2
+
+models:
+  - name: team
+    description: "View that selects all columns from VW_TEAM and adds a surrogate key and record source"
+    columns:
+      - name: team_name_pk
+        description: "Surrogate key generated from team_name"
+        tests:
+          - unique
+          - not_null
+
+      - name: team_name
+        description: "Name of the basketball team"

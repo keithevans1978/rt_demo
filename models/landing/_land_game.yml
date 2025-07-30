@@ -1,0 +1,21 @@
+version: 2
+
+models:
+  - name: game
+    description: >
+      View built from KANSAS_BASKETBALL.VW_GAME_RESULTS, enriched with a surrogate key `game_pk`
+      created from OPPONENT and GAME_DATE, and a static `record_source` field.
+    config:
+      materialized: view
+    columns:
+      - name: game_pk
+        description: "Surrogate key generated from OPPONENT and GAME_DATE"
+        tests:
+          - not_null
+          - unique
+
+      - name: opponent
+        description: "Opponent team name"
+
+      - name: game_date
+        description: "Date of the game"
