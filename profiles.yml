@@ -1,4 +1,4 @@
-grant_park:
+rt_demo:
   target: dev
   outputs:
     dev:
@@ -8,7 +8,7 @@ grant_park:
       role: ACCOUNTADMIN
       warehouse: DEMO_WH
       schema: DEV
-      database: KEVANS_GRANT_DEV
+      database: RT_DEMO_DEV
     prod:
       type: snowflake
       account: 'not needed'
@@ -16,4 +16,4 @@ grant_park:
       role: ACCOUNTADMIN
       warehouse: DEMO_WH
       schema: PROD
-      database: KEVANS_GRANT_PROD
+      database: RT_DEMO_PROD

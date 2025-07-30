@@ -4,13 +4,13 @@
 
 with source_ as (
         select {{dbt_utils.star(
-                          from=source('kevans_grant_strava', 'strava_activities_raw')
+                          from=source('KANSAS_BASKETBALL', 'VW_TEAM')
                             )}}
                             ,'strava' as record_source
-    from {{ source('kevans_grant_strava', 'strava_activities_raw') }}
+    from {{ source('KANSAS_BASKETBALL', 'VW_TEAM') }}
 )
 
 
-select {{ dbt_utils.generate_surrogate_key(['activity_id','record_source']) }} activity_pk
+select {{ dbt_utils.generate_surrogate_key(['team_name']) }} team_name_pk
       ,*
 from source_

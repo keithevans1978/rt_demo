@@ -1,8 +1,9 @@
 snapshots:
-  - name: snap_team
+  - name: snap_team_del
     relation:  ref('land_team')
     config:
       unique_key: team_name_pk
       strategy: check
       check_cols: all
       dbt_valid_to_current: "to_date('8888-12-31')"
+      hard_deletes: new_record
