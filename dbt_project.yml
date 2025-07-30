@@ -1,6 +1,6 @@
-name: grant_park
+name: rt_demo
 
-profile: grant_park
+profile: rt_demo
 
 model-paths: ["models"]
 analysis-paths: ["analyses"]
@@ -17,11 +17,11 @@ clean-targets:
 
 seeds:
   # Builds seeds into '<your_schema_name>_raw'
-  grant_park:
+  rt_demo:
     +schema: raw
 
 models:
-  grant_park:
+  rt_demo:
     # Materialize staging models as views, and marts as tables
     staging:
       +schema: stage
